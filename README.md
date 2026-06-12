@@ -29,4 +29,5 @@ RetroFight does not include, distribute, sell, or provide game ROMs. Users are r
 ## Release Documentation
 
 - [Beta release notes](release-notes/beta.md)
+- [Production release notes](release-notes/prod.md)
 - [How to play](https://github.com/Retrofight/retrofight-releases/wiki)
