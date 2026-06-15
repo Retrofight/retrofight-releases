@@ -32,6 +32,18 @@ The RetroFight FBNeo runtime is included with the client package. Game ROMs are 
 
 After rejecting a challenge, the next challenge can sometimes fail to accept on the first attempt. Rejecting once more usually clears the flow and allows the next challenge to be accepted. Current evidence points to frontend challenge event handling rather than a server-side failure.
 
+## Troubleshooting
+
+If RetroFight FBNeo does not start and Windows reports a missing DirectX file such as `d3dx9_43.dll`, the legacy DirectX 9 runtime was not installed correctly.
+
+The installer should install it automatically when needed. If that does not happen, open the installed RetroFight folder and run:
+
+```txt
+resources\dxredist\DXSETUP.exe
+```
+
+The `resources\dxredist\` folder contains the bundled DirectX 9 runtime packages required by RetroFight FBNeo.
+
 ## Networking Notice
 
 RetroFight FBNeo beta does not include a UDP relay or TURN-like fallback for GGPO. If UDP direct play fails between two players, the match cannot automatically fall back to a relay in this beta.
