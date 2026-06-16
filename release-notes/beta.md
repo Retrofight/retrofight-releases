@@ -44,6 +44,8 @@ resources\dxredist\DXSETUP.exe
 
 The `resources\dxredist\` folder contains the bundled DirectX 9 runtime packages required by RetroFight FBNeo.
 
+If RetroFight FBNeo still closes immediately after DirectX 9 is installed, install the Microsoft Visual C++ Redistributable 2015-2022 x86 runtime. RetroFight FBNeo is currently an x86 executable and requires `MSVCP140.dll` and `VCRUNTIME140.dll`. A crash exit code of `0xC0000135` usually means Windows could not find one of the required DLLs.
+
 ## Networking Notice
 
 RetroFight FBNeo beta does not include a UDP relay or TURN-like fallback for GGPO. If UDP direct play fails between two players, the match cannot automatically fall back to a relay in this beta.
