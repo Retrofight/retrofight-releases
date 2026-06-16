@@ -34,9 +34,9 @@ After rejecting a challenge, the next challenge can sometimes fail to accept on 
 
 ## Troubleshooting
 
-If RetroFight FBNeo does not start and Windows reports a missing DirectX file such as `d3dx9_43.dll`, the legacy DirectX 9 runtime was not installed correctly.
+If RetroFight FBNeo does not start and RetroFight reports a missing DirectX file such as `d3dx9_43.dll`, the legacy DirectX 9 runtime is missing.
 
-The installer should install it automatically when needed. If that does not happen, open the installed RetroFight folder and run:
+Use the Electron menu item `Window > Install DirectX9 FBNeo` to launch the bundled DirectX setup. You can also open the installed RetroFight folder and run:
 
 ```txt
 resources\dxredist\DXSETUP.exe
