@@ -14,6 +14,29 @@ You need:
 
 RetroFight does not include, distribute, or download game ROMs.
 
+## Requirements
+
+RetroFight FBNeo uses an older Windows game/runtime stack. On a fresh Windows installation, install these Microsoft components before playing:
+
+- Microsoft DirectX End-User Runtime legacy package.
+  This provides DirectX 9 helper DLLs such as `d3dx9_43.dll`.
+- Microsoft Visual C++ Redistributable 2015-2022 x86.
+  RetroFight FBNeo is currently an x86 executable and needs runtime DLLs such as `MSVCP140.dll` and `VCRUNTIME140.dll`.
+
+If `d3dx9_43.dll` is missing, open RetroFight and use `Window > Install DirectX9 FBNeo`. The same installer is also bundled in the installed app folder:
+
+```txt
+resources\dxredist\DXSETUP.exe
+```
+
+If `MSVCP140.dll` or `VCRUNTIME140.dll` is missing, install the x86 Visual C++ Redistributable from Microsoft:
+
+```txt
+https://aka.ms/vc14/vc_redist.x86.exe
+```
+
+Install the x86 package even on 64-bit Windows because the current RetroFight FBNeo runtime is x86.
+
 ## Install Or Launch
 
 Use one of the release artifacts:
@@ -21,7 +44,7 @@ Use one of the release artifacts:
 - Run `RetroFight-win-x64.exe` to install RetroFight.
 - Extract `RetroFight-win-x64.zip` and launch the portable build.
 
-If RetroFight FBNeo does not start because `d3dx9_43.dll` is missing, install the Microsoft DirectX End-User Runtime legacy package and restart RetroFight.
+If RetroFight FBNeo reports a missing runtime dependency, install the component listed in the Requirements section and restart RetroFight.
 
 ## Add Your Game Files
 
@@ -70,7 +93,9 @@ Game file missing:
 
 Runtime does not start:
 
-- Install the Microsoft DirectX End-User Runtime legacy package if `d3dx9_43.dll` is missing.
+- Use `Window > Install DirectX9 FBNeo` if `d3dx9_43.dll` is missing.
+- Install Microsoft Visual C++ Redistributable 2015-2022 x86 if `MSVCP140.dll` or `VCRUNTIME140.dll` is missing.
+- If the crash shows exit code `0xC0000135`, Windows could not find a required DLL; check DirectX 9 and the x86 Visual C++ runtime.
 - Check whether antivirus software blocked the runtime.
 - Reinstall or re-extract the RetroFight release build.
 
