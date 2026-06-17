@@ -11,6 +11,20 @@ The client provides game lobbies, player challenges, runtime launch, connection 
 
 The RetroFight FBNeo runtime is included with the client package. Game ROMs are not included.
 
+## Account Access
+
+RetroFight requires a RetroFight account for online play.
+
+Register or manage your account on the website:
+
+```txt
+https://retrofight-web.vercel.app
+```
+
+The Windows client supports login only. It does not include in-app
+registration. Your website player name is used as your lobby and in-game display
+name, and only one active client session is allowed per account.
+
 ## Networking Notice
 
 RetroFight FBNeo uses GGPO UDP direct play. RetroFight uses its server for lobby, matchmaking, signaling, and candidate exchange; real-time match traffic is handled directly between players by GGPO.
@@ -29,8 +43,7 @@ Read the [How to play](https://github.com/Retrofight/retrofight-releases/wiki) g
 
 - UDP relay or TURN-like fallback for GGPO.
 - Automatic fallback to legacy runtimes.
-- Persistent accounts.
-- Rankings, Elo, or Glicko unless explicitly announced in a future release.
+- Rankings, Elo, Glicko, public profiles, or public match history unless explicitly announced in a future release.
 - Spectator mode.
 - Advanced lobby chat.
 - Competitive anti-cheat.

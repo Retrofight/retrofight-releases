@@ -11,10 +11,27 @@ The beta networking path uses GGPO UDP direct play. RetroFight uses its server f
 
 The RetroFight FBNeo runtime is included with the client package. Game ROMs are not included.
 
+## Account Access
+
+RetroFight beta now requires a RetroFight account.
+
+Register or manage your account on the website:
+
+```txt
+https://retrofight-web.vercel.app
+```
+
+The Windows client supports login only. It does not include in-app
+registration. Your website player name is used as your lobby and in-game display
+name, and only one active client session is allowed per account.
+
 ## Validated So Far
 
 - Windows installer starts and installs correctly.
 - Portable ZIP starts correctly.
+- Supabase account login through the Windows client.
+- Website player name shown in game lobbies and passed to RetroFight FBNeo.
+- Server-side rejection of simultaneous client sessions for the same account.
 - Same-machine testing with two Electron instances.
 - Same-LAN testing with two different machines.
 - Long match testing over 20 minutes.
@@ -35,6 +52,11 @@ The RetroFight FBNeo runtime is included with the client package. Game ROMs are 
 After rejecting a challenge, the next challenge can sometimes fail to accept on the first attempt. Rejecting once more usually clears the flow and allows the next challenge to be accepted. Current evidence points to frontend challenge event handling rather than a server-side failure.
 
 ## Troubleshooting
+
+If login fails, register or check your account at
+`https://retrofight-web.vercel.app`, confirm that your email and password are
+correct, and close any other RetroFight client already connected with the same
+account.
 
 The current RetroFight FBNeo beta runtime is packaged to start on clean Windows
 installs without requiring users to install legacy DirectX 9 D3DX or Microsoft
@@ -83,8 +105,7 @@ RetroFight does not include, distribute, or download game ROMs. Users must provi
 
 - UDP relay or TURN-like fallback for GGPO.
 - Automatic fallback to legacy runtimes.
-- Persistent accounts.
-- Rankings, Elo, or Glicko.
+- Rankings, Elo, Glicko, public profiles, or public match history beyond the current account login.
 - Spectator mode.
 - Advanced lobby chat.
 - Competitive anti-cheat.

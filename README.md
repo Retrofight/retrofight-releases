@@ -18,9 +18,9 @@ RetroFight is designed for:
 
 ## Beta Status
 
-RetroFight is currently in beta. The beta focuses on stable direct online play, clear connection feedback, and a clean Windows release experience.
+RetroFight is currently in beta. The beta focuses on stable direct online play, account-based access, clear connection feedback, and a clean Windows release experience.
 
-Some features commonly expected from mature online platforms are intentionally outside the first beta, including persistent accounts, rankings, spectator mode, advanced chat, and relay fallback for networks where direct play is not possible.
+Players register through `https://retrofight-web.vercel.app` and sign in from the Windows client. Features such as rankings, public profiles, spectator mode, advanced chat, and relay fallback for networks where direct play is not possible remain outside the first beta.
 
 ## Content Notice
 

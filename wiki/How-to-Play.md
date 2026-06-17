@@ -8,6 +8,7 @@ You need:
 
 - A Windows PC.
 - A RetroFight beta release build.
+- A RetroFight account registered at `https://retrofight-web.vercel.app`.
 - Network access to the RetroFight server.
 - Permission for RetroFight and RetroFight FBNeo through Windows Firewall.
 - Game files that you legally own and are authorized to use.
@@ -26,6 +27,22 @@ runtime is statically linked. The runtime folder must keep `ggponet.dll` next to
 
 This has been validated on a clean Windows VM without Microsoft Visual C++
 Redistributable 2015-2022 x86 and without legacy DirectX 9 D3DX installed.
+
+## Create Or Use Your Account
+
+Register or manage your RetroFight account on the website:
+
+```txt
+https://retrofight-web.vercel.app
+```
+
+The Windows client only supports login. It does not provide in-app registration.
+
+Use the same email and password you created on the website to sign in from the
+RetroFight client. Your website player name is used as your lobby and in-game
+display name.
+
+Only one active RetroFight client session is allowed per account.
 
 ## Install Or Launch
 
@@ -46,14 +63,15 @@ Place the required game ZIP files in that folder. RetroFight will not let you en
 ## Start A Match
 
 1. Launch RetroFight.
-2. Select a game from the catalog.
-3. Enter the game lobby.
-4. Choose an available player and send a challenge.
-5. The challenged player can accept or reject the match.
-6. When accepted, RetroFight starts signaling and UDP direct connection checks.
-7. When the connection succeeds, RetroFight launches the RetroFight FBNeo runtime.
-8. Play the match.
-9. When the runtime closes, RetroFight returns to the lobby.
+2. Sign in with your RetroFight account.
+3. Select a game from the catalog.
+4. Enter the game lobby.
+5. Choose an available player and send a challenge.
+6. The challenged player can accept or reject the match.
+7. When accepted, RetroFight starts signaling and UDP direct connection checks.
+8. When the connection succeeds, RetroFight launches the RetroFight FBNeo runtime.
+9. Play the match.
+10. When the runtime closes, RetroFight returns to the lobby.
 
 Ranked play is disabled by default during the beta release.
 
@@ -120,6 +138,13 @@ Server unavailable:
 - Check your internet or LAN connection.
 - Restart RetroFight.
 - Try again after confirming the server is online.
+
+Login failed:
+
+- Confirm that the account was registered at `https://retrofight-web.vercel.app`.
+- Check that email and password are correct.
+- If the same account is already connected from another RetroFight client, close the other client and try again.
+- If you changed your player name on the website, sign out and sign in again from the client.
 
 Game file missing:
 
