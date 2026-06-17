@@ -34,17 +34,20 @@ After rejecting a challenge, the next challenge can sometimes fail to accept on 
 
 ## Troubleshooting
 
-If RetroFight FBNeo does not start and RetroFight reports a missing DirectX file such as `d3dx9_43.dll`, the legacy DirectX 9 runtime is missing.
+The current RetroFight FBNeo beta runtime is packaged to start on clean Windows
+installs without requiring users to install legacy DirectX 9 D3DX or Microsoft
+Visual C++ Redistributable packages first. The x86 runtime statically links the
+MSVC runtime and no longer imports `d3dx9_43.dll`, `MSVCP140.dll`, or
+`VCRUNTIME140.dll`.
 
-Use the Electron menu item `Window > Install DirectX9 FBNeo` to launch the bundled DirectX setup. You can also open the installed RetroFight folder and run:
+If RetroFight FBNeo closes immediately with exit code `0xC0000135`, Windows
+could not find a required DLL. Check the diagnostics folder from `Window > Open
+Diagnostics Folder` and confirm that the runtime folder still contains
+`ggponet.dll`.
 
-```txt
-resources\dxredist\DXSETUP.exe
-```
-
-The `resources\dxredist\` folder contains the bundled DirectX 9 runtime packages required by RetroFight FBNeo.
-
-If RetroFight FBNeo still closes immediately after DirectX 9 is installed, install the Microsoft Visual C++ Redistributable 2015-2022 x86 runtime. RetroFight FBNeo is currently an x86 executable and requires `MSVCP140.dll` and `VCRUNTIME140.dll`. A crash exit code of `0xC0000135` usually means Windows could not find one of the required DLLs.
+The `Window > Install DirectX9 FBNeo` menu item is retained for diagnostics and
+older runtime builds. It is not required for the current dependency-clean beta
+runtime during normal play.
 
 ## Networking Notice
 
