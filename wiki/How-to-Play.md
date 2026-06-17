@@ -57,6 +57,51 @@ Place the required game ZIP files in that folder. RetroFight will not let you en
 
 Ranked play is disabled by default during the beta release.
 
+## Controller And Hotkeys
+
+RetroFight supports client navigation through keyboard, browser Gamepad API, and
+native Windows XInput controllers. Open `Map Client Switch` from the app header
+or press `F9` while in the launcher to choose a preset or customize the client
+controls.
+
+Default keyboard preset:
+
+- Up: `ArrowUp`
+- Down: `ArrowDown`
+- Left: `ArrowLeft`
+- Right: `ArrowRight`
+- Select: `Enter`
+- Back / quick actions: `Escape`
+- Map Client Switch: `F9`
+
+Default Gamepad API preset:
+
+- Up: left stick / axis 1 negative
+- Down: left stick / axis 1 positive
+- Left: left stick / axis 0 negative
+- Right: left stick / axis 0 positive
+- Select: button 0
+- Back / quick actions: button 1
+- Map Client Switch: button 9
+
+Default XInput preset:
+
+- Up: D-pad up
+- Down: D-pad down
+- Left: D-pad left
+- Right: D-pad right
+- Select: `A`
+- Back / quick actions: `B`
+- Map Client Switch: `Start`
+
+System exit hotkey:
+
+- `Start + Back/Coin + Left`
+
+This exit hotkey is always active while RetroFight is running. If the emulator is
+open, it closes the emulator and returns to the launcher. If no emulator is
+running, it exits RetroFight.
+
 ## Connection Status
 
 During match startup, RetroFight can show:
