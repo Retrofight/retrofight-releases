@@ -86,7 +86,7 @@ Runtime does not start:
 
 - Use `Window > Open Diagnostics Folder` and check `rfbneo-diagnostics.log`.
 - If the crash shows exit code `0xC0000135`, Windows could not find a required DLL; confirm `ggponet.dll` is still next to `retrofightfbneo.exe`.
-- The `Window > Install DirectX9 FBNeo` menu item is retained for diagnostics and older runtime builds, but it is not required for the current dependency-clean runtime during normal play. It runs `resources\dxredist\DXSETUP.exe`.
+- If an older runtime build reports `d3dx9_43.dll` as missing, install the official Microsoft DirectX End-User Runtime Web Installer from `https://www.microsoft.com/en-us/download/details.aspx?id=35`.
 - If an older x86 runtime build reports `MSVCP140.dll` or `VCRUNTIME140.dll` as missing, install Microsoft Visual C++ Redistributable 2015-2022 x86 from `https://aka.ms/vs/17/release/vc_redist.x86.exe`.
 - Check whether antivirus software blocked the runtime.
 - Reinstall or re-extract the RetroFight release build.

@@ -47,16 +47,16 @@ could not find a required DLL. Check the diagnostics folder from `Window > Open
 Diagnostics Folder` and confirm that the runtime folder still contains
 `ggponet.dll`.
 
-Legacy DirectX 9 and Visual C++ Redistributable are not required for the current
-dependency-clean runtime during normal play. If diagnostics, older runtime
-builds, or local experiments still report missing legacy components, use these
-recovery steps:
+Legacy DirectX 9 and Visual C++ Redistributable are not bundled and are not
+required for the current dependency-clean runtime during normal play. If
+diagnostics, older runtime builds, or local experiments still report missing
+legacy components, install them from Microsoft:
 
-- DirectX 9 D3DX: open RetroFight and use `Window > Install DirectX9 FBNeo`, or
-  run the bundled installer from the installed app folder:
+- DirectX 9 D3DX: download and run the official Microsoft DirectX End-User
+  Runtime Web Installer:
 
 ```txt
-resources\dxredist\DXSETUP.exe
+https://www.microsoft.com/en-us/download/details.aspx?id=35
 ```
 
 - Visual C++ x86 runtime: install Microsoft Visual C++ Redistributable
