@@ -24,6 +24,9 @@ The runtime is still x86 because the bundled GGPO library is x86, but the MSVC
 runtime is statically linked. The runtime folder must keep `ggponet.dll` next to
 `retrofightfbneo.exe`.
 
+This has been validated on a clean Windows VM without Microsoft Visual C++
+Redistributable 2015-2022 x86 and without legacy DirectX 9 D3DX installed.
+
 ## Install Or Launch
 
 Use one of the release artifacts:
@@ -83,7 +86,8 @@ Runtime does not start:
 
 - Use `Window > Open Diagnostics Folder` and check `rfbneo-diagnostics.log`.
 - If the crash shows exit code `0xC0000135`, Windows could not find a required DLL; confirm `ggponet.dll` is still next to `retrofightfbneo.exe`.
-- The `Window > Install DirectX9 FBNeo` menu item is retained for diagnostics and older runtime builds, but it is not required for the current dependency-clean runtime during normal play.
+- The `Window > Install DirectX9 FBNeo` menu item is retained for diagnostics and older runtime builds, but it is not required for the current dependency-clean runtime during normal play. It runs `resources\dxredist\DXSETUP.exe`.
+- If an older x86 runtime build reports `MSVCP140.dll` or `VCRUNTIME140.dll` as missing, install Microsoft Visual C++ Redistributable 2015-2022 x86 from `https://aka.ms/vs/17/release/vc_redist.x86.exe`.
 - Check whether antivirus software blocked the runtime.
 - Reinstall or re-extract the RetroFight release build.
 

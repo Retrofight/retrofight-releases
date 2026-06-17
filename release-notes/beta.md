@@ -20,6 +20,8 @@ The RetroFight FBNeo runtime is included with the client package. Game ROMs are 
 - Long match testing over 20 minutes.
 - More than 10 separate matches during beta validation.
 - Forced runtime crash testing with stable return to the lobby.
+- Clean Windows VM startup without Microsoft Visual C++ Redistributable
+  2015-2022 x86 and without legacy DirectX 9 D3DX installed.
 - DEV and PROD GitHub release pipelines on the release branch.
 
 ## Still To Validate
@@ -45,9 +47,27 @@ could not find a required DLL. Check the diagnostics folder from `Window > Open
 Diagnostics Folder` and confirm that the runtime folder still contains
 `ggponet.dll`.
 
-The `Window > Install DirectX9 FBNeo` menu item is retained for diagnostics and
-older runtime builds. It is not required for the current dependency-clean beta
-runtime during normal play.
+Legacy DirectX 9 and Visual C++ Redistributable are not required for the current
+dependency-clean runtime during normal play. If diagnostics, older runtime
+builds, or local experiments still report missing legacy components, use these
+recovery steps:
+
+- DirectX 9 D3DX: open RetroFight and use `Window > Install DirectX9 FBNeo`, or
+  run the bundled installer from the installed app folder:
+
+```txt
+resources\dxredist\DXSETUP.exe
+```
+
+- Visual C++ x86 runtime: install Microsoft Visual C++ Redistributable
+  2015-2022 x86 from Microsoft:
+
+```txt
+https://aka.ms/vs/17/release/vc_redist.x86.exe
+```
+
+Install the x86 package even on 64-bit Windows when testing old x86 runtime
+builds.
 
 ## Networking Notice
 
