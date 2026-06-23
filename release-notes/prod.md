@@ -1,15 +1,23 @@
 # RetroFight Production Release Notes
 
-RetroFight production releases provide the current stable Windows build of the RetroFight client and the custom RetroFight FBNeo runtime.
+RetroFight production releases provide the current stable desktop build of the RetroFight client for Windows and Linux.
 
 The client provides game lobbies, player challenges, runtime launch, connection status, and return-to-lobby handling after a match closes.
 
 ## Available Builds
 
-- `RetroFight-win-x64.exe`: Windows installer.
-- `RetroFight-win-x64.zip`: portable Windows build.
+- `RetroFight-Windows-Setup-<version>-x64.exe`: Windows installer.
+- `RetroFight-Windows-<version>-x64.zip`: portable Windows build.
+- `RetroFight-Linux-<version>-x64.AppImage`: Linux x64 AppImage.
+- `RetroFight-Linux-<version>-x64.deb`: Linux x64 Debian package.
 
-The RetroFight FBNeo runtime is included with the client package. Game ROMs are not included.
+The client package includes the RetroFight FBNeo base runtime. The active
+RetroFight FBNeo executable is provided by the RetroFight service at runtime and
+is verified by the client before launch.
+
+Linux builds include an embedded Wine runtime for RetroFight FBNeo. Users do not
+need to install system Wine, `wine32`, or `wine64` for the packaged Linux
+release. Game ROMs are not included.
 
 ## Account Access
 
@@ -21,7 +29,7 @@ Register or manage your account on the website:
 https://retrofight-web.vercel.app
 ```
 
-The Windows client supports login only. It does not include in-app
+The desktop client supports login only. It does not include in-app
 registration. Your website player name is used as your lobby and in-game display
 name, and only one active client session is allowed per account.
 

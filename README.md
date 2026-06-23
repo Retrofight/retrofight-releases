@@ -1,6 +1,6 @@
 # RetroFight
 
-RetroFight is a Windows arcade fighting game matchmaking client focused on direct, low-latency 1v1 play.
+RetroFight is a desktop arcade fighting game matchmaking client focused on direct, low-latency 1v1 play on Windows and Linux.
 
 The project combines a desktop client, online lobbies, match challenges, and a custom RetroFight FBNeo runtime built for competitive arcade sessions. The goal is to make classic arcade versus play feel immediate, readable, and reliable, with a simple flow from choosing a game to entering a match.
 
@@ -18,9 +18,9 @@ RetroFight is designed for:
 
 ## Beta Status
 
-RetroFight is currently in beta. The beta focuses on stable direct online play, account-based access, clear connection feedback, and a clean Windows release experience.
+RetroFight is currently in beta. The beta focuses on stable direct online play, account-based access, clear connection feedback, and clean Windows and Linux release packages.
 
-Players register through `https://retrofight-web.vercel.app` and sign in from the Windows client. Features such as rankings, public profiles, spectator mode, advanced chat, and relay fallback for networks where direct play is not possible remain outside the first beta.
+Players register through `https://retrofight-web.vercel.app` and sign in from the desktop client. Linux packages include an embedded Wine runtime for RetroFight FBNeo, so users do not need to install system Wine for the packaged beta. Features such as rankings, public profiles, spectator mode, advanced chat, and relay fallback for networks where direct play is not possible remain outside the first beta.
 
 ## Content Notice
 
