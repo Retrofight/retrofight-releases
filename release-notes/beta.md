@@ -42,6 +42,8 @@ Copyright Policy, and Legal FAQ.
 Website registration requires accepting the Terms of Use and Privacy Policy.
 The acceptance timestamp, locale, statement, and document versions are stored in
 the structured `privacy_consent` Supabase account metadata.
+The website profile page lets users accept or revoke this consent, updating
+`privacy_consent.accepted` on the account metadata.
 
 Users can request account removal from the website profile page. The flow shows
 a deletion disclaimer and requires typing the account email before the account

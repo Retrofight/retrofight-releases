@@ -39,6 +39,7 @@ The RetroFight website links the public legal pages from the footer. Package
 downloads require accepting the download legal notice before the artifact opens.
 Website registration requires accepting the Terms of Use and Privacy Policy, and
 the acceptance details are stored in structured Supabase account metadata.
+Users can accept or revoke this consent from the website profile page.
 Users can remove their account from the website profile page after confirming
 the account email in the deletion dialog.
 
