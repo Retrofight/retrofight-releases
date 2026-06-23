@@ -33,6 +33,19 @@ The desktop client supports login only. It does not include in-app
 registration. Your website player name is used as your lobby and in-game display
 name, and only one active client session is allowed per account.
 
+## Legal Notices
+
+The RetroFight website now links public legal pages in the footer, including the
+Legal Notice, Terms of Use, Third-Party Content Notice, Copyright Policy, and
+Legal FAQ.
+
+Every website package download now shows an important legal notice first. The
+download starts only after selecting `I UNDERSTAND AND AGREE`.
+
+The desktop client shows the first-run legal notice before first use. If the
+notice is not accepted, the client exits. Acceptance is saved locally and is
+requested again only when the bundled notice text changes.
+
 ## Validated So Far
 
 - Windows installer starts and installs correctly.
@@ -42,6 +55,8 @@ name, and only one active client session is allowed per account.
 - Supabase account login through the desktop client.
 - Website player name shown in game lobbies and passed to RetroFight FBNeo.
 - Server-side rejection of simultaneous client sessions for the same account.
+- Website legal pages and download disclaimer consent flow.
+- Desktop client first-run legal consent gate.
 - Same-machine testing with two Electron instances.
 - Same-LAN testing with two different machines.
 - Long match testing over 20 minutes.

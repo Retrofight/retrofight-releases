@@ -33,6 +33,15 @@ The desktop client supports login only. It does not include in-app
 registration. Your website player name is used as your lobby and in-game display
 name, and only one active client session is allowed per account.
 
+## Legal Notices
+
+The RetroFight website links the public legal pages from the footer. Package
+downloads require accepting the download legal notice before the artifact opens.
+
+The desktop client shows a first-run legal notice before first use. If the
+notice is not accepted, the client exits. Acceptance is stored locally and is
+requested again when the bundled notice text changes.
+
 ## Networking Notice
 
 RetroFight FBNeo uses GGPO UDP direct play. RetroFight uses its server for lobby, matchmaking, signaling, and candidate exchange; real-time match traffic is handled directly between players by GGPO.

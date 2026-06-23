@@ -64,6 +64,13 @@ Use one of the release artifacts:
 - Install `RetroFight-Linux-0.6.5-beta.0-x64.deb` on Debian-based Linux x64
   distributions.
 
+Website downloads show a legal notice before the file opens. Select
+`I UNDERSTAND AND AGREE` to continue the download.
+
+On first launch, the RetroFight client shows a legal notice before the login
+screen. Select `I UNDERSTAND AND AGREE` to continue. If you do not accept the
+notice, the client exits.
+
 If RetroFight FBNeo reports a missing runtime dependency, open the diagnostics
 folder from the Window menu and confirm the packaged runtime files are intact.
 
