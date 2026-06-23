@@ -37,6 +37,8 @@ name, and only one active client session is allowed per account.
 
 The RetroFight website links the public legal pages from the footer. Package
 downloads require accepting the download legal notice before the artifact opens.
+Website registration requires accepting the Terms of Use and Privacy Policy, and
+the acceptance details are stored with the Supabase account metadata.
 
 The desktop client shows a first-run legal notice before first use. If the
 notice is not accepted, the client exits. Acceptance is stored locally and is

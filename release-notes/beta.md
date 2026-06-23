@@ -36,8 +36,12 @@ name, and only one active client session is allowed per account.
 ## Legal Notices
 
 The RetroFight website now links public legal pages in the footer, including the
-Legal Notice, Terms of Use, Third-Party Content Notice, Copyright Policy, and
-Legal FAQ.
+Legal Notice, Terms of Use, Privacy Policy, Third-Party Content Notice,
+Copyright Policy, and Legal FAQ.
+
+Website registration requires accepting the Terms of Use and Privacy Policy.
+The acceptance timestamp, locale, statement, and document versions are stored
+with the Supabase account metadata.
 
 Every website package download now shows an important legal notice first. The
 download starts only after selecting `I UNDERSTAND AND AGREE`.
@@ -55,7 +59,8 @@ requested again only when the bundled notice text changes.
 - Supabase account login through the desktop client.
 - Website player name shown in game lobbies and passed to RetroFight FBNeo.
 - Server-side rejection of simultaneous client sessions for the same account.
-- Website legal pages and download disclaimer consent flow.
+- Website legal pages, Privacy Policy, registration consent, and download
+  disclaimer consent flow.
 - Desktop client first-run legal consent gate.
 - Same-machine testing with two Electron instances.
 - Same-LAN testing with two different machines.

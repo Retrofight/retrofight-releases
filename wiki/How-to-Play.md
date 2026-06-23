@@ -46,6 +46,9 @@ https://retrofight-web.vercel.app
 
 The desktop client only supports login. It does not provide in-app registration.
 
+Website registration requires accepting the Terms of Use and Privacy Policy.
+The website footer links the public legal pages in English and Italian.
+
 Use the same email and password you created on the website to sign in from the
 RetroFight client. Your website player name is used as your lobby and in-game
 display name.
