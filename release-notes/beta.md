@@ -40,8 +40,12 @@ Legal Notice, Terms of Use, Privacy Policy, Third-Party Content Notice,
 Copyright Policy, and Legal FAQ.
 
 Website registration requires accepting the Terms of Use and Privacy Policy.
-The acceptance timestamp, locale, statement, and document versions are stored
-with the Supabase account metadata.
+The acceptance timestamp, locale, statement, and document versions are stored in
+the structured `privacy_consent` Supabase account metadata.
+
+Users can request account removal from the website profile page. The flow shows
+a deletion disclaimer and requires typing the account email before the account
+is removed.
 
 Every website package download now shows an important legal notice first. The
 download starts only after selecting `I UNDERSTAND AND AGREE`.
@@ -61,6 +65,7 @@ requested again only when the bundled notice text changes.
 - Server-side rejection of simultaneous client sessions for the same account.
 - Website legal pages, Privacy Policy, registration consent, and download
   disclaimer consent flow.
+- Website account deletion flow with email confirmation.
 - Desktop client first-run legal consent gate.
 - Same-machine testing with two Electron instances.
 - Same-LAN testing with two different machines.

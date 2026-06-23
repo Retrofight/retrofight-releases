@@ -48,6 +48,8 @@ The desktop client only supports login. It does not provide in-app registration.
 
 Website registration requires accepting the Terms of Use and Privacy Policy.
 The website footer links the public legal pages in English and Italian.
+If you need to remove your account, open the website profile page, choose the
+account deletion action, and type your account email in the confirmation dialog.
 
 Use the same email and password you created on the website to sign in from the
 RetroFight client. Your website player name is used as your lobby and in-game
