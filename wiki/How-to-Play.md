@@ -155,7 +155,9 @@ During match startup, RetroFight can show:
 - `Connected`: the direct path is ready and the runtime can start.
 - `Direct failed`: UDP direct play did not succeed.
 
-If direct UDP fails, this beta cannot automatically recover through a relay.
+If direct UDP fails, RetroFight shows that this beta has no GGPO-compatible UDP
+relay yet. Allow UDP through your firewall, try another network, or choose
+another opponent.
 
 ## Troubleshooting
 
@@ -196,11 +198,6 @@ UDP direct failed:
 - Avoid VPNs, hotspots, hotel networks, school networks, office networks, or restrictive routers during beta testing.
 - Try again from a home network.
 - If the network blocks UDP direct traffic, this beta does not provide a relay fallback.
-
-Challenge flow gets stuck after rejecting:
-
-- Reject the next challenge and try again.
-- Note the player names, approximate time, and click sequence before reporting the issue.
 
 ## Where To Find Local Data
 

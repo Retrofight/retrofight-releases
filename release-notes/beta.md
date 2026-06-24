@@ -86,7 +86,7 @@ requested again only when the bundled notice text changes.
 
 ## Known Issue
 
-After rejecting a challenge, the next challenge can sometimes fail to accept on the first attempt. Rejecting once more usually clears the flow and allows the next challenge to be accepted. Current evidence points to frontend challenge event handling rather than a server-side failure.
+Restrictive NAT or firewall setups can still prevent GGPO UDP direct play. This beta does not include a GGPO-compatible UDP relay fallback.
 
 ## Troubleshooting
 

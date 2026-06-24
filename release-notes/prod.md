@@ -51,7 +51,7 @@ requested again when the bundled notice text changes.
 
 RetroFight FBNeo uses GGPO UDP direct play. RetroFight uses its server for lobby, matchmaking, signaling, and candidate exchange; real-time match traffic is handled directly between players by GGPO.
 
-RetroFight does not currently include a UDP relay or TURN-like fallback for GGPO. If UDP direct play fails between two players, the match cannot automatically fall back to a relay.
+RetroFight does not currently include a UDP relay or TURN-like fallback for GGPO. If UDP direct play fails between two players, the match cannot automatically fall back to a relay. The client message asks users to allow UDP through their firewall, try another network, or choose another opponent.
 
 ## ROM Notice
 
