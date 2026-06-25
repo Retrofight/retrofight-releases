@@ -56,6 +56,34 @@ The desktop client shows the first-run legal notice before first use. If the
 notice is not accepted, the client exits. Acceptance is saved locally and is
 requested again only when the bundled notice text changes.
 
+## Diagnostic Telemetry
+
+The desktop client now supports opt-in diagnostic telemetry for network observability.
+
+Telemetry is **disabled by default**. It can be enabled or disabled at any time from the Quick Actions menu (client switch key → Diagnostics).
+
+When enabled, the client sends the following to the RetroFight server after each match attempt:
+
+- UDP candidate type chosen (LAN, STUN, or public)
+- STUN discovery outcome
+- Punch result and reason (direct, timeout, or failed)
+- Probe round-trip latency in milliseconds
+- Client and runtime version
+- Game driver name (no ROM files, no game content)
+- Runtime crash exit code when applicable
+
+No ROM files, game inputs, display names, IP addresses, or personally identifiable data are collected. The server stores events in a local JSONL file. Telemetry consent is stored locally in the client data directory and can be revoked at any time.
+
+## Network Probe Overlay
+
+The client sidebar now shows a **Probe** section after each UDP direct attempt, displaying:
+
+- Candidate type selected (LAN, STUN, or public)
+- Round-trip latency measured from probe send to first response
+- STUN discovery outcome
+
+This section is visible after a match attempt concludes and is cleared when the client returns to the lobby. Jitter and packet loss metrics require GGPO protocol changes and are not available in this release.
+
 ## Validated So Far
 
 - Windows installer starts and installs correctly.
