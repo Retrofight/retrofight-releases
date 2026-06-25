@@ -112,9 +112,26 @@ This section is visible after a match attempt concludes and is cleared when the 
 - Restrictive NAT or firewall cases where UDP direct fails.
 - Final competitive policy for disputes, forfeits, and penalties.
 
+## UDP Relay Fallback
+
+When GGPO UDP direct play fails between two players, the server can now automatically allocate a UDP relay and assign each player a dedicated relay port. GGPO uses the relay endpoint transparently — no runtime changes are required.
+
+The relay server forwards packets cross-port so that each player's GGPO instance sees source addresses matching its configured remote peer, keeping the relay fully transparent to GGPO's source-address filter.
+
+**Infrastructure requirement:** the relay requires a dedicated host with an open UDP port range (default 40000–49999). The relay is off by default in the current deployment. The server operator enables it by setting:
+
+```
+RETROFIGHT_RELAY_ENABLED=1
+RETROFIGHT_RELAY_PUBLIC_IP=<server public IP>
+RETROFIGHT_RELAY_PORT_START=40000    # optional, default 40000
+RETROFIGHT_RELAY_PORT_COUNT=1000     # optional, default 1000
+```
+
+Until a dedicated VPS with an open UDP port range is provisioned, the relay remains inactive. When inactive, the existing "UDP direct failed" message is shown and no match starts.
+
 ## Known Issue
 
-Restrictive NAT or firewall setups can still prevent GGPO UDP direct play. This beta does not include a GGPO-compatible UDP relay fallback.
+Restrictive NAT or firewall setups can still prevent GGPO UDP direct play. The UDP relay fallback is implemented but requires a dedicated VPS with an open UDP port range; it is not yet active in the current deployment.
 
 ## Troubleshooting
 
@@ -162,9 +179,9 @@ builds.
 
 ## Networking Notice
 
-RetroFight FBNeo beta does not include a UDP relay or TURN-like fallback for GGPO. If UDP direct play fails between two players, the match cannot automatically fall back to a relay in this beta.
+RetroFight FBNeo uses GGPO UDP direct play as the primary path. A UDP relay fallback is implemented server-side and is transparent to GGPO (no runtime changes required). The relay is not yet active in the current deployment — a dedicated VPS with an open UDP port range is needed. Until then, if UDP direct play fails, the match cannot start automatically.
 
-The older TCP relay work developed for a legacy RetroArch path does not automatically solve GGPO UDP connectivity and is not part of the first beta release path.
+The older TCP relay work developed for a legacy RetroArch path does not solve GGPO UDP connectivity and remains out of scope.
 
 ## ROM Notice
 
@@ -172,7 +189,7 @@ RetroFight does not include, distribute, or download game ROMs. Users must provi
 
 ## Out Of Scope For This Beta
 
-- UDP relay or TURN-like fallback for GGPO.
+- UDP relay active deployment (infrastructure not yet provisioned).
 - Automatic fallback to legacy runtimes.
 - Rankings, Elo, Glicko, public profiles, or public match history beyond the current account login.
 - Spectator mode.
