@@ -215,11 +215,71 @@ The match history is visible on your own profile page after login. Confirmed mat
 
 **Server configuration** — set `RETROFIGHT_SUPABASE_URL` and `RETROFIGHT_SUPABASE_SERVICE_ROLE_KEY` (or `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY`) on the server to enable match history persistence. Set `RETROFIGHT_MATCH_HISTORY_ENABLED=0` to disable. When not configured, the server continues to operate without match persistence.
 
+## Competitive Ranking (Milestone 6)
+
+RetroFight now includes a full competitive ranking system based on Glicko-2.
+
+### Challenge types
+
+Every challenge now specifies a **match type** and a **set format**:
+
+- **Casual** — no rating impact; result is recorded as `played`.
+- **Ranked FT1 / FT2 / FT3 / FT5** — first to N games wins; result updates Glicko-2 ratings.
+
+The challenge UI sends `matchType` and `ftN` to the server. The server includes them in the `match_ready` event and records them in `match_history`.
+
+### Glicko-2 hidden rating
+
+Each player maintains a separate hidden Glicko-2 rating per game. The rating is never shown directly — only the visible rank badge is exposed.
+
+**Rank thresholds (all-time):**
+
+| Badge | Rank | Rating threshold |
+|-------|------|-----------------|
+| NR | 0 | No completed ranked match |
+| E  | 1 | rating < 1300 |
+| D  | 2 | 1300 – 1499 |
+| C  | 3 | 1500 – 1699 |
+| B  | 4 | 1700 – 1899 |
+| A  | 5 | 1900 – 2099 |
+| S  | 6 | ≥ 2100 |
+
+New players start with rating 1500 and high RD (uncertainty). After calibration matches their rating settles and they receive a visible rank.
+
+**Anti-boosting:** if two players play more than 2 ranked matches against each other within 24 hours, the rating impact is progressively reduced (50 % after 3–4 matches, 25 % after 5+).
+
+### Runtime rank badge
+
+The player's rank tier (0–6) is now fetched from Supabase before the match starts and passed to the RetroFight FBNeo runtime. The runtime renders the corresponding rank badge (`rank0.png`–`rank6.png`) in the name overlay. The badge defaults to NR (0) for new players or when the server cannot reach Supabase.
+
+### Leaderboard
+
+Per-game leaderboards are available at `/leaderboard` on the website. Each game shows the top 50 players by rank and rating. Only players with at least one completed ranked match and a public profile appear on the leaderboard.
+
+### Audit trail and disputes
+
+All ranked match results — confirmed, disputed, and forfeit — are stored in `match_history` with a full audit trail. Disputed results are excluded from the public leaderboard but are visible to administrators via the Supabase service role.
+
+`ranking_history` records each player's Glicko-2 rating and rank before and after every ranked match, enabling full replay of the rating trajectory.
+
+### Database migration
+
+Apply `supabase/migrations/20260626000002_milestone6.sql` to the RetroFight Supabase project. This migration creates:
+
+- `ranking_seasons` — named rating periods; active season is enforced unique.
+- `player_game_ratings` — one row per (player, game, season); stores Glicko-2 values and visible rank.
+- `ranking_history` — audit trail of every rating change.
+- Adds `match_type` (casual/ranked) and `ft_n` (1–5) columns to `match_history`.
+
+### Server configuration
+
+Set `RETROFIGHT_RANKING_ENABLED=0` to disable ranking updates (default: enabled). Ranking requires `RETROFIGHT_SUPABASE_URL` and `RETROFIGHT_SUPABASE_SERVICE_ROLE_KEY` to be set. When not configured, the server continues without ranking persistence.
+
 ## Out Of Scope For This Beta
 
 - UDP relay active deployment (infrastructure not yet provisioned).
 - Automatic fallback to legacy runtimes.
-- Rankings, Elo, Glicko, or competitive scoring.
+- Ranking seasons activation (table exists; no active season created yet).
 - Spectator mode.
 - Advanced lobby chat.
 - Competitive anti-cheat.
