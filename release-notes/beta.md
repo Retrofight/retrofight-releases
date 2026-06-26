@@ -187,11 +187,39 @@ The older TCP relay work developed for a legacy RetroArch path does not solve GG
 
 RetroFight does not include, distribute, or download game ROMs. Users must provide only game files they legally own and are authorized to use.
 
+## Public Profiles and Match History
+
+Player profiles now include optional public profile fields and a persistent match history.
+
+**Profile settings** (available from the website profile page):
+
+- **Public profile toggle** — when enabled, your profile and match history are visible at `/players/{your-player-name}`.
+- **Avatar URL** — optional link to a profile image.
+- **Country code** — optional two-letter ISO country code (e.g. IT, US).
+
+**Match history** is recorded server-side for every confirmed, disputed, or forfeit match. It stores:
+
+- Player IDs and display names at the time of the match
+- Game driver name
+- Winner, scores, and match status
+- Runtime version, protocol version, and audit ID
+- Timestamp
+
+The match history is visible on your own profile page after login. Confirmed matches between two players with public profiles are also visible on the public player profile page.
+
+**Account deletion** now anonymizes match history names before removing the account. Match records remain for statistical purposes but can no longer be linked to the deleted account.
+
+**Public player profiles** are accessible at `/players/{player-name}`. The page shows the player's optional avatar, country, member-since date, win/match counts, and match history.
+
+**Database migration** — apply `supabase/migrations/20260626000000_milestone5.sql` to the RetroFight Supabase project to add the `avatar_url`, `country`, `is_public`, `created_at`, and `updated_at` columns to the `profiles` table and create the `match_history` table.
+
+**Server configuration** — set `RETROFIGHT_SUPABASE_URL` and `RETROFIGHT_SUPABASE_SERVICE_ROLE_KEY` (or `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY`) on the server to enable match history persistence. Set `RETROFIGHT_MATCH_HISTORY_ENABLED=0` to disable. When not configured, the server continues to operate without match persistence.
+
 ## Out Of Scope For This Beta
 
 - UDP relay active deployment (infrastructure not yet provisioned).
 - Automatic fallback to legacy runtimes.
-- Rankings, Elo, Glicko, public profiles, or public match history beyond the current account login.
+- Rankings, Elo, Glicko, or competitive scoring.
 - Spectator mode.
 - Advanced lobby chat.
 - Competitive anti-cheat.
