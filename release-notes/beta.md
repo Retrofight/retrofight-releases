@@ -230,7 +230,7 @@ The challenge UI sends `matchType` and `ftN` to the server. The server includes 
 
 ### Glicko-2 hidden rating
 
-Each player maintains a separate hidden Glicko-2 rating per game. The rating is never shown directly — only the visible rank badge is exposed.
+Each player maintains a separate hidden Glicko-2 rating per game. The rating is not shown anywhere on the website — only the visible rank badge is exposed there. The desktop client's in-match HUD now shows a rounded display rating next to the rank badge (see "In-Match Side Panel HUD" below); the underlying rating deviation and volatility used by the Glicko-2 algorithm are never exposed.
 
 **Rank thresholds (all-time):**
 
@@ -248,9 +248,17 @@ New players start with rating 1500 and high RD (uncertainty). After calibration 
 
 **Anti-boosting:** if two players play more than 2 ranked matches against each other within 24 hours, the rating impact is progressively reduced (50 % after 3–4 matches, 25 % after 5+).
 
-### Runtime rank badge
+### In-Match Side Panel HUD
 
-The player's rank tier (0–6) is now fetched from Supabase before the match starts and passed to the RetroFight FBNeo runtime. The runtime renders the corresponding rank badge (`rank0.png`–`rank6.png`) in the name overlay. The badge defaults to NR (0) for new players or when the server cannot reach Supabase.
+The in-match overlay has moved from a single centered top bar to a translucent side panel docked to each edge of the video — player 1 on the left, player 2 on the right, mirrored. Each panel shows, generically across every supported game:
+
+- **Player name**.
+- **Rank badge** (`rank0.png`–`rank6.png`) — fetched from Supabase before the match starts, defaulting to NR (0) for new players or when the server cannot reach Supabase.
+- **Display rating** — a rounded Glicko-2 rating shown next to the badge; hidden when no rating data is available yet.
+- **Country flag** — read from the player's public profile country code (see "Public Profiles and Match History" above); hidden when the profile has no country set.
+- **FT round-win pips** — replaces the old plain "score:score" text with filled/empty dots, shown once the game's per-title detector starts tracking round wins (same condition that already gated the score display).
+
+The VS / FTn label stays centered at the top of the screen as before. The side panels are always-on translucent overlays on the video edge in this release; they do not yet detect or use pillarbox/letterbox margins when present (tracked as a future enhancement).
 
 ### Leaderboard
 
