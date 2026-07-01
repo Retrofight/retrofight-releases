@@ -283,6 +283,37 @@ Apply `supabase/migrations/20260626000002_milestone6.sql` to the RetroFight Supa
 
 Set `RETROFIGHT_RANKING_ENABLED=0` to disable ranking updates (default: enabled). Ranking requires `RETROFIGHT_SUPABASE_URL` and `RETROFIGHT_SUPABASE_SERVICE_ROLE_KEY` to be set. When not configured, the server continues without ranking persistence.
 
+## Competitive Matchmaking (Milestone 7)
+
+RetroFight now includes an opt-in automatic matchmaking queue, additive to the existing manual lobby list.
+
+### Find Match
+
+A new **Find Match** button appears in the lobby next to the match format selector. Joining the queue requires the same idle precondition as sending a manual challenge. While searching, the panel shows a **Searching for opponent…** status with a Cancel button; the existing player list and manual **Challenge** buttons remain fully available as a fallback at all times.
+
+### Pairing signal
+
+The server periodically pairs the two best-matching queued players for the same game and match format, scoring candidates by:
+
+- **Rank proximity** — closer visible ranks (0–6) score higher.
+- **Region** — a broad continent-level bucket resolved from the connecting IP address server-side (never exposed to any client), used only as a soft preference.
+- **Connection quality** — a rolling per-player direct-punch success rate (always available) and, for users with telemetry enabled, an average probe latency sample.
+- **Recent pairing** — opponents paired together recently are deprioritized, without ever being excluded outright.
+
+None of these signals ever block a match: when only two players are queued for a game/format, they are paired immediately. Longer wait times also progressively raise a player's priority, so pairing never stalls even in a large queue with an unfavorable score.
+
+### Confirmation flow
+
+A matchmaking pairing is a **suggestion**, not an automatic match: both players still see an Accept/Decline banner, exactly like a manual challenge. If either player declines or does not respond in time, the other player is automatically returned to the search queue with a **"searching for a new match"** notice instead of being left waiting — only the player who actively declined (or never responded) returns to idle.
+
+### Server configuration
+
+`RETROFIGHT_MATCHMAKING_ENABLED` (default: enabled), `RETROFIGHT_MATCHMAKING_TICK_MS` (default 2000), `RETROFIGHT_MATCHMAKING_SUGGESTION_TIMEOUT_MS` (default 15000), `RETROFIGHT_NETWORK_STATS_ENABLED` (default: enabled when Supabase is configured; shares credentials with ranking/match history).
+
+### Database migration
+
+Apply `supabase/migrations/20260701000000_milestone7.sql` to the RetroFight Supabase project. This migration creates `player_network_stats`, a per-player per-game connection-quality table used only as an internal matchmaking scoring signal (not shown on any leaderboard or profile).
+
 ## Out Of Scope For This Beta
 
 - UDP relay active deployment (infrastructure not yet provisioned).
