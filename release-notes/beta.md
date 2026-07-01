@@ -289,7 +289,11 @@ RetroFight now includes an opt-in automatic matchmaking queue, additive to the e
 
 ### Find Match
 
-A new **Find Match** button appears in the lobby next to the match format selector. Joining the queue requires the same idle precondition as sending a manual challenge. While searching, the panel shows a **Searching for opponent…** status with a Cancel button; the existing player list and manual **Challenge** buttons remain fully available as a fallback at all times.
+A new **Find Match** button appears in the lobby. Joining the queue requires the same idle precondition as sending a manual challenge. While searching, the panel shows a **Searching for opponent…** status with a Cancel button; the existing player list and manual **Challenge** buttons remain fully available as a fallback at all times.
+
+### Fixed match format
+
+Find Match does not ask the searcher to choose a set format. Ranked-eligible games always search **ranked FT3**; every other game searches **casual**. This keeps a game's population in a single queue instead of splitting it across every possible format combination. Manual challenges (the **Challenge** button on a specific player) are unaffected and still let two players agree on any format — VS, FT2, FT3, FT5, or FT10.
 
 ### Pairing signal
 
@@ -313,6 +317,10 @@ A matchmaking pairing is a **suggestion**, not an automatic match: both players 
 ### Database migration
 
 Apply `supabase/migrations/20260701000000_milestone7.sql` to the RetroFight Supabase project. This migration creates `player_network_stats`, a per-player per-game connection-quality table used only as an internal matchmaking scoring signal (not shown on any leaderboard or profile).
+
+## Online Player Counts
+
+The game selection screen now shows how many players are currently online for each title, so you know whether to expect a quick match before entering that game's lobby. Counts are polled periodically and require an active login.
 
 ## Out Of Scope For This Beta
 
