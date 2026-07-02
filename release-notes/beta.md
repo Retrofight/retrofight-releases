@@ -322,6 +322,32 @@ Apply `supabase/migrations/20260701000000_milestone7.sql` to the RetroFight Supa
 
 The game selection screen now shows how many players are currently online for each title, so you know whether to expect a quick match before entering that game's lobby. Counts are polled periodically and require an active login.
 
+## Play Now (Redesigned Matchmaking Experience)
+
+RetroFight moves from a "browse who's online and challenge them" model to a modern fighting-game flow: you just press **Play** and start fighting. The system finds the best available opponent in the background while you play.
+
+### One button
+
+After picking a game you choose **Casual** or **Ranked**, then press **Play**. The game launches straight into local training/free play and matchmaking starts searching in the background — you never wait on an empty screen.
+
+### Match Found
+
+When an opponent is found, your game **pauses** and a **Match Found** popup appears over it, showing the opponent's flag, name, rank, rating, estimated ping, and connection quality. Press **Accept** (Enter/Space) to start the match; the ranked toggle (Tab) lets you switch Casual/Ranked for this match. There is no Decline: if either player does not accept in time, the popup disappears, your game resumes exactly where it was (no lost progress), and the search continues automatically.
+
+### Ranked is mutual opt-in
+
+A single shared queue per game keeps even small populations matching quickly. A match counts as **Ranked (FT3)** only when both players choose Ranked; otherwise it is **Casual**. Your Casual/Ranked preference is remembered between sessions.
+
+### Continuous play
+
+When a match ends you are returned to training and the search restarts automatically — Play → training → match → training → match — without ever pressing Play again. You leave the loop only by exiting the game.
+
+### Rematch
+
+After a match both players can request a **Rematch**; it starts only if both agree within the window, inheriting the same mode, otherwise both return to searching.
+
+The previous manual player list and direct challenge remain in the codebase and will return as a separate **Friends** mode.
+
 ## Out Of Scope For This Beta
 
 - UDP relay active deployment (infrastructure not yet provisioned).

@@ -88,18 +88,19 @@ Place the required game ZIP files in that folder. RetroFight will not let you en
 
 ## Start A Match
 
-1. Launch RetroFight.
-2. Sign in with your RetroFight account.
-3. Select a game from the catalog.
-4. Enter the game lobby.
-5. Choose an available player and send a challenge.
-6. The challenged player can accept or reject the match.
-7. When accepted, RetroFight starts signaling and UDP direct connection checks.
-8. When the connection succeeds, RetroFight launches the RetroFight FBNeo runtime.
-9. Play the match.
-10. When the runtime closes, RetroFight returns to the lobby.
+RetroFight uses a "Play Now" flow: you press Play once and keep playing while the system finds opponents for you.
 
-Ranked play is disabled by default during the beta release.
+1. Launch RetroFight and sign in with your RetroFight account.
+2. Select a game from the catalog and choose **Casual** or **Ranked**.
+3. Press **Play**. RetroFight launches the game into local training/free play and starts searching for an opponent in the background — you never wait on an empty screen.
+4. When an opponent is found, your game **pauses** and a **Match Found** popup shows their flag, name, rank, rating, estimated ping, and connection quality.
+5. Press **Accept** (Enter/Space) to start the match; press **Tab** to toggle Casual/Ranked for this match. If nobody accepts in time, the popup closes, your game resumes exactly where it was, and the search continues automatically.
+6. When both players accept, RetroFight runs UDP direct connection checks and starts the match.
+7. When the match ends, you return to training and the search restarts automatically — no need to press Play again.
+8. After a match, both players can request a **Rematch**; it starts only if both agree.
+9. To leave the loop, exit the running game and return to game selection.
+
+Ranked is mutual opt-in: a match counts as **Ranked (FT3)** only when both players choose Ranked; otherwise it is Casual. Your preference is remembered between sessions.
 
 ## Controller And Hotkeys
 

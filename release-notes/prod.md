@@ -59,7 +59,7 @@ RetroFight does not include, distribute, or download game ROMs. Users must provi
 
 ## Recommended Reading
 
-Read the [How to play](https://github.com/Retrofight/retrofight-releases/wiki) guide before starting your first match.
+Read the [How to play](https://github.com/Retrofight/retrofight-releases/wiki) guide before starting your first match. The current beta introduces the "Play Now" experience — press Play, keep playing in local training, and the system finds and confirms opponents in the background; see the beta release notes for details.
 
 ## Out Of Scope
 
