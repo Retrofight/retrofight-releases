@@ -332,7 +332,9 @@ After picking a game you choose **Casual** or **Ranked**, then press **Play**. T
 
 ### Match Found
 
-When an opponent is found, your game **pauses** and a **Match Found** popup appears over it, showing the opponent's flag, name, rank, rating, estimated ping, and connection quality. Press **Accept** (Enter/Space) to start the match; the ranked toggle (Tab) lets you switch Casual/Ranked for this match. There is no Decline: if either player does not accept in time, the popup disappears, your game resumes exactly where it was (no lost progress), and the search continues automatically.
+When an opponent is found, your game **pauses** and a **Match Found** popup appears over it, showing the opponent's flag, name, rank, rating, estimated ping, and connection quality. Press **Accept** to start the match — with the **A** button on a controller or Enter/Space on a keyboard — and use the ranked toggle (**B** button or Tab) to switch Casual/Ranked for this match. There is no Decline: if either player does not accept in time, the popup disappears, your game resumes exactly where it was (no lost progress), and the search continues automatically.
+
+The popup itself has been restyled to match the rest of the app: a crisp rounded plate with a uniform gold border and a soft drop shadow, rendered so it stays sharp at any resolution.
 
 ### Ranked is mutual opt-in
 
@@ -347,6 +349,21 @@ When a match ends you are returned to training and the search restarts automatic
 After a match both players can request a **Rematch**; it starts only if both agree within the window, inheriting the same mode, otherwise both return to searching.
 
 The previous manual player list and direct challenge remain in the codebase and will return as a separate **Friends** mode.
+
+### Controller-first in-game controls (kiosk)
+
+Because a RetroFight cabinet often has no keyboard, the in-game overlays are now
+driven from the controller through the runtime's own input reading (honoring each
+game's button mapping):
+
+- **A** accepts a Match Found suggestion; **B** toggles Casual/Ranked.
+- Hold **A + B + Start** for 2 seconds to **quit** the running game (same clean
+  exit as Alt+F4).
+- Hold **A + B + Select** for 2 seconds to open **Map Game Inputs** (same as F5).
+
+The keyboard shortcuts (Enter/Space, Tab, Alt+F4, F5) keep working unchanged for
+setups that have a keyboard. The two-second deliberate hold prevents accidental
+triggers during normal play.
 
 ## Out Of Scope For This Beta
 
