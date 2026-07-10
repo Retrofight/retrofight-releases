@@ -332,21 +332,29 @@ After picking a game you choose **Casual** or **Ranked**, then press **Play**. T
 
 ### Match Found
 
-When an opponent is found, your game **pauses** and a **Match Found** popup appears over it, showing the opponent's flag, name, rank, rating, estimated ping, and connection quality. Press **Accept** to start the match — with the **A** button on a controller or Enter/Space on a keyboard — and use the ranked toggle (**B** button or Tab) to switch Casual/Ranked for this match. There is no Decline: if either player does not accept in time, the popup disappears, your game resumes exactly where it was (no lost progress), and the search continues automatically.
+When an opponent is found, your game **pauses** and a **Match Found** popup appears over it. The popup now shows **both players side by side** with their assigned positions (**1P** vs **2P**, with **YOU** highlighted on your side), each with name, country flag, rank badge, rating, and an avatar slot, plus the estimated ping and connection quality between you. A clear **RANKED / VERSUS** badge shows the stakes at a glance.
 
-The popup itself has been restyled to match the rest of the app: a crisp rounded plate with a uniform gold border and a soft drop shadow, rendered so it stays sharp at any resolution.
+Press **Accept** to start the match — with the **A** button on a controller or Enter/Space on a keyboard — and use the ranked toggle (**B** button or Tab) to switch Casual/Ranked for this match. You can also **Decline** (Escape/Backspace or the Start button): the popup disappears, your game resumes exactly where it was (no lost progress), and the search continues automatically. The same happens if neither player accepts in time.
+
+The popup is styled to match the rest of the app: a crisp rounded plate with a uniform gold border and a soft drop shadow, rendered so it stays sharp at any resolution.
 
 ### Ranked is mutual opt-in
 
 A single shared queue per game keeps even small populations matching quickly. A match counts as **Ranked (FT3)** only when both players choose Ranked; otherwise it is **Casual**. Your Casual/Ranked preference is remembered between sessions.
 
-### Continuous play
+### Results and what's next
 
-When a match ends you are returned to training and the search restarts automatically — Play → training → match → training → match — without ever pressing Play again. You leave the loop only by exiting the game.
+When a ranked match is decided the runtime shows a **Results** screen (Victory/Defeat, the You-vs-Opponent score, and the mode) instead of cutting to black. You then land on a **post-match choice**: **Rematch**, **New Search**, or **Exit** — nothing happens automatically, so you are never instantly thrown into another game.
 
-### Rematch
+- **Rematch** replays the same pair immediately (mutual opt-in: it starts only if both choose it within the window, inheriting the same mode).
+- **New Search** resumes matchmaking for a fresh opponent.
+- **Exit** ends the session and returns to the catalog.
 
-After a match both players can request a **Rematch**; it starts only if both agree within the window, inheriting the same mode, otherwise both return to searching.
+To keep things fair on small populations, two players who just finished a match together are **not instantly re-paired** by matchmaking for a short cooldown — if you want to play them again right away, use **Rematch**.
+
+### Play while searching (optional)
+
+By default you play offline while the search runs. A new **Settings** toggle lets you instead **just wait**: the queue runs with the app window visible and the Match Found popup appears in the app (Accept/Decline) rather than in the runtime.
 
 The previous manual player list and direct challenge remain in the codebase and will return as a separate **Friends** mode.
 
@@ -356,14 +364,15 @@ Because a RetroFight cabinet often has no keyboard, the in-game overlays are now
 driven from the controller through the runtime's own input reading (honoring each
 game's button mapping):
 
-- **A** accepts a Match Found suggestion; **B** toggles Casual/Ranked.
+- **A** accepts a Match Found suggestion; **B** toggles Casual/Ranked; **Start**
+  (or Escape/Backspace) declines it.
 - Hold **A + B + Start** for 2 seconds to **quit** the running game (same clean
   exit as Alt+F4).
 - Hold **A + B + Select** for 2 seconds to open **Map Game Inputs** (same as F5).
 
-The keyboard shortcuts (Enter/Space, Tab, Alt+F4, F5) keep working unchanged for
-setups that have a keyboard. The two-second deliberate hold prevents accidental
-triggers during normal play.
+The keyboard shortcuts (Enter/Space, Tab, Escape, Alt+F4, F5) keep working
+unchanged for setups that have a keyboard. The two-second deliberate hold
+prevents accidental triggers during normal play.
 
 ## Out Of Scope For This Beta
 
