@@ -88,17 +88,17 @@ Place the required game ZIP files in that folder. RetroFight will not let you en
 
 ## Start A Match
 
-RetroFight uses a "Play Now" flow: you press Play once and keep playing while the system finds opponents for you.
+RetroFight uses a "Play Now" flow: you press Online once and the system finds opponents for you, and you can play a training session while you wait.
 
 1. Launch RetroFight and sign in with your RetroFight account.
 2. Select a game from the catalog and choose **Casual** or **Ranked**.
-3. Press **Play**. RetroFight launches the game into local training/free play and starts searching for an opponent in the background — you never wait on an empty screen.
-4. When an opponent is found, your game **pauses** and a **Match Found** popup shows **both players** side by side with their positions (**1P** vs **2P**, with **YOU** highlighted), each with name, flag, rank, and rating, plus the ping and connection quality between you and a **RANKED / VERSUS** badge.
-5. Press **Accept** (**A** button, or Enter/Space) to start the match; press **Tab** (or **B**) to toggle Casual/Ranked for this match; press **Escape** (or **Start**) to **Decline**. If you decline or nobody accepts in time, the popup closes, your game resumes exactly where it was, and the search continues automatically.
-6. When both players accept, RetroFight runs UDP direct connection checks and starts the match.
-7. When a ranked match is decided you see a **Results** screen (Victory/Defeat, score, mode), then a post-match choice: **Rematch**, **New Search**, or **Exit** — nothing restarts on its own.
-8. **Rematch** replays the same pair (only if both choose it in time). **New Search** finds a fresh opponent; two players who just played are not instantly re-paired for a short while, so use Rematch to replay right away. **Exit** returns to the catalog.
-9. Prefer to just wait instead of playing while searching? Turn off **Play while searching** in **Settings** — the Match Found popup then appears in the app window.
+3. Press **Online**. RetroFight starts searching for an opponent in the background and shows **Searching for opponent…** with **Training** and **Stop** buttons.
+4. Optional: press **Training** (or the **A** button) to play local single-player/free play for the same game while the search keeps running. Press **Stop** (or **B**) to leave the queue.
+5. When an opponent is found, the app comes to the front with a **Match Found** banner. If you were in Training, the game **pauses** first so you never lose progress. The banner shows **both players** side by side with their positions (**1P** vs **2P**, with **YOU** highlighted), each with name, flag, rank, and rating, plus the ping and connection quality between you and a **RANKED / VERSUS** badge.
+6. Press **Accept** (**A** button, or Enter/Space) to start the match, or **Decline** (**B**, or Escape). If you decline or nobody accepts in time, the banner closes and the search continues automatically; if you were training, the game resumes exactly where it was.
+7. When both players accept, RetroFight runs UDP direct connection checks and starts the match.
+8. When a ranked match is decided you see a **Results** screen (Victory/Defeat, score, mode), then a post-match choice: **Rematch**, **New Search**, or **Exit** — nothing restarts on its own.
+9. **Rematch** replays the same pair (only if both choose it in time). **New Search** finds a fresh opponent; two players who just played are not instantly re-paired for a short while, so use Rematch to replay right away. **Exit** returns to the catalog.
 
 Ranked is mutual opt-in: a match counts as **Ranked (FT3)** only when both players choose Ranked; otherwise it is Casual. Your preference is remembered between sessions.
 

@@ -328,15 +328,17 @@ RetroFight moves from a "browse who's online and challenge them" model to a mode
 
 ### One button
 
-After picking a game you choose **Casual** or **Ranked**, then press **Play**. The game launches straight into local training/free play and matchmaking starts searching in the background — you never wait on an empty screen.
+After picking a game you choose **Casual** or **Ranked**, then press **Online**. Matchmaking starts searching in the background right away — the app stays on screen showing **Searching for opponent…** with two buttons: **Training** and **Stop**.
+
+### Play while you search
+
+Waiting is optional. Press **Training** (or the **A** button) to drop into local single-player/free play for the same game while the search keeps running in the background. Press **Stop** (or **B**) to leave the queue.
 
 ### Match Found
 
-When an opponent is found, your game **pauses** and a **Match Found** popup appears over it. The popup now shows **both players side by side** with their assigned positions (**1P** vs **2P**, with **YOU** highlighted on your side), each with name, country flag, rank badge, rating, and an avatar slot, plus the estimated ping and connection quality between you. A clear **RANKED / VERSUS** badge shows the stakes at a glance.
+When an opponent is found, the app comes to the front with a **Match Found** banner. If you were in Training, the game **pauses** first and the app returns over it, so you never lose progress. The banner shows **both players side by side** with their assigned positions (**1P** vs **2P**, with **YOU** highlighted on your side), each with name, country flag, rank badge, rating, and an avatar slot, plus the estimated ping and connection quality between you. A clear **RANKED / VERSUS** badge shows the stakes at a glance.
 
-Press **Accept** to start the match — with the **A** button on a controller or Enter/Space on a keyboard — and use the ranked toggle (**B** button or Tab) to switch Casual/Ranked for this match. You can also **Decline** (Escape/Backspace or the Start button): the popup disappears, your game resumes exactly where it was (no lost progress), and the search continues automatically. The same happens if neither player accepts in time.
-
-The popup is styled to match the rest of the app: a crisp rounded plate with a uniform gold border and a soft drop shadow, rendered so it stays sharp at any resolution.
+Press **Accept** (**A**) to start the match, or **Decline** (**B**): the banner disappears and the search continues automatically. If you were training, the game resumes exactly where it was (no lost progress) and the app drops back behind it. The same auto-continue happens if neither player accepts in time.
 
 ### Ranked is mutual opt-in
 
@@ -352,27 +354,25 @@ When a ranked match is decided the runtime shows a **Results** screen (Victory/D
 
 To keep things fair on small populations, two players who just finished a match together are **not instantly re-paired** by matchmaking for a short cooldown — if you want to play them again right away, use **Rematch**.
 
-### Play while searching (optional)
-
-By default you play offline while the search runs. A new **Settings** toggle lets you instead **just wait**: the queue runs with the app window visible and the Match Found popup appears in the app (Accept/Decline) rather than in the runtime.
-
 The previous manual player list and direct challenge remain in the codebase and will return as a separate **Friends** mode.
 
-### Controller-first in-game controls (kiosk)
+### Controller-first controls (kiosk)
 
-Because a RetroFight cabinet often has no keyboard, the in-game overlays are now
-driven from the controller through the runtime's own input reading (honoring each
-game's button mapping):
+Because a RetroFight cabinet often has no keyboard, the whole flow is
+controller-friendly. The **Match Found** banner is shown in the app and is
+navigated with the controller: **A** accepts, **B** declines. While searching,
+**A** starts Training and **B** stops the search.
 
-- **A** accepts a Match Found suggestion; **B** toggles Casual/Ranked; **Start**
-  (or Escape/Backspace) declines it.
+Two always-on holds work while a game is running (honoring each game's button
+mapping):
+
 - Hold **A + B + Start** for 2 seconds to **quit** the running game (same clean
   exit as Alt+F4).
 - Hold **A + B + Select** for 2 seconds to open **Map Game Inputs** (same as F5).
 
-The keyboard shortcuts (Enter/Space, Tab, Escape, Alt+F4, F5) keep working
-unchanged for setups that have a keyboard. The two-second deliberate hold
-prevents accidental triggers during normal play.
+The keyboard shortcuts (Alt+F4, F5) keep working unchanged for setups that have a
+keyboard. The two-second deliberate hold prevents accidental triggers during
+normal play.
 
 ## Out Of Scope For This Beta
 
