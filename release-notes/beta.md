@@ -336,9 +336,9 @@ Waiting is optional. Press **Training** (or the **A** button) to drop into local
 
 ### Match Found
 
-When an opponent is found, the app comes to the front with a **Match Found** banner. If you were in Training, the game **pauses** first and the app returns over it, so you never lose progress. The banner shows **both players side by side** with their assigned positions (**1P** vs **2P**, with **YOU** highlighted on your side), each with name, country flag, rank badge, rating, and an avatar slot, plus the estimated ping and connection quality between you. A clear **RANKED / VERSUS** badge shows the stakes at a glance.
+When an opponent is found, the app comes to the front with a **Match Found** banner. If you were in Training, the training session closes and the app takes over the screen. The banner shows **both players side by side** with their assigned positions (**1P** vs **2P**, with **YOU** highlighted on your side), each with name, country flag, rank badge, rating, and an avatar slot, plus the estimated ping and connection quality between you. A clear **RANKED / VERSUS** badge shows the stakes at a glance.
 
-Press **Accept** (**A**) to start the match, or **Decline** (**B**): the banner disappears and the search continues automatically. If you were training, the game resumes exactly where it was (no lost progress) and the app drops back behind it. The same auto-continue happens if neither player accepts in time.
+Press **Accept** (**A**) to start the match, or **Decline** (**B**): the banner disappears and the search continues automatically. If you were training, a fresh training session starts again in the background. The same auto-continue happens if neither player accepts in time.
 
 ### Ranked is mutual opt-in
 
