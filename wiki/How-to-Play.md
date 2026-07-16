@@ -1,13 +1,13 @@
-# How to Play RetroFight Beta
+# How to Play RetroFight
 
-This guide explains the basic RetroFight beta flow for Windows and Linux users.
+This guide explains the basic RetroFight flow for Windows and Linux users.
 
 ## Before You Start
 
 You need:
 
 - A Windows PC or Linux x64 system.
-- A RetroFight beta release build.
+- A RetroFight release build.
 - A RetroFight account registered at `https://retrofight-web.vercel.app`.
 - Network access to the RetroFight server.
 - Permission for RetroFight and RetroFight FBNeo through your firewall.
@@ -21,13 +21,13 @@ The RetroFight package includes the RetroFight FBNeo base runtime. The active
 RetroFight FBNeo executable is provided by the RetroFight service at runtime and
 is verified by the client before launch.
 
-On Windows, the current RetroFight FBNeo beta runtime is packaged for clean
+On Windows, the current RetroFight FBNeo runtime is packaged for clean
 Windows installs. You should not need to install legacy DirectX 9 D3DX or
 Microsoft Visual C++ Redistributable packages before playing.
 
 On Linux, use the x64 AppImage or Debian package. Linux builds include an
 embedded Wine runtime for launching RetroFight FBNeo, so you do not need to
-install system Wine, `wine32`, or `wine64` for normal beta use.
+install system Wine, `wine32`, or `wine64` for normal use.
 
 The runtime is still x86 because the bundled GGPO library is x86, but the MSVC
 runtime is statically linked on Windows. The runtime folder must keep
@@ -62,13 +62,10 @@ Only one active RetroFight client session is allowed per account.
 
 Use one of the release artifacts:
 
-- Run `RetroFight-Windows-Setup-0.6.5-beta.0-x64.exe` to install RetroFight on
-  Windows.
-- Extract `RetroFight-Windows-0.6.5-beta.0-x64.zip` and launch the portable
-  Windows build.
-- Launch `RetroFight-Linux-0.6.5-beta.0-x64.AppImage` on Linux x64.
-- Install `RetroFight-Linux-0.6.5-beta.0-x64.deb` on Debian-based Linux x64
-  distributions.
+- Run `RetroFight-Windows-Setup-x64.exe` to install RetroFight on Windows.
+- Extract `RetroFight-Windows-x64.zip` and launch the portable Windows build.
+- Launch `RetroFight-Linux-x86_64.AppImage` on Linux x64.
+- Install `RetroFight-Linux-amd64.deb` on Debian-based Linux x64 distributions.
 
 Website downloads show a legal notice before the file opens. Select
 `I UNDERSTAND AND AGREE` to continue the download.
@@ -154,11 +151,11 @@ During match startup, RetroFight can show:
 - `Signaling`: players are exchanging match setup information.
 - `UDP direct`: RetroFight is checking whether direct UDP play is possible.
 - `Connected`: the direct path is ready and the runtime can start.
-- `Direct failed`: UDP direct play did not succeed.
+- `Relay`: direct UDP did not succeed, so the match runs through a RetroFight server UDP relay.
 
-If direct UDP fails, RetroFight shows that this beta has no GGPO-compatible UDP
-relay yet. Allow UDP through your firewall, try another network, or choose
-another opponent.
+If direct UDP play cannot be established, RetroFight can route match traffic
+through a server UDP relay so the match still starts. Direct play still gives the
+best latency, so allow UDP through your firewall for the best connection.
 
 ## Troubleshooting
 
@@ -185,7 +182,7 @@ Runtime does not start:
 
 - Use `Window > Open Diagnostics Folder` and check `rfbneo-diagnostics.log`.
 - If the crash shows exit code `0xC0000135`, Windows could not find a required DLL; confirm `ggponet.dll` is still next to `retrofightfbneo.exe`.
-- On Linux, use the packaged AppImage or Debian build. The beta includes an
+- On Linux, use the packaged AppImage or Debian build. The Linux build includes an
   embedded Wine runtime; installing a separate system Wine package should not be
   required.
 - If an older runtime build reports `d3dx9_43.dll` as missing, install the official Microsoft DirectX End-User Runtime Web Installer from `https://www.microsoft.com/en-us/download/details.aspx?id=35`.
@@ -195,10 +192,10 @@ Runtime does not start:
 
 UDP direct failed:
 
-- Allow RetroFight and RetroFight FBNeo through your firewall.
-- Avoid VPNs, hotspots, hotel networks, school networks, office networks, or restrictive routers during beta testing.
+- Allow RetroFight and RetroFight FBNeo through your firewall for the best, lowest-latency connection.
+- Avoid VPNs, hotspots, hotel networks, school networks, office networks, or restrictive routers when testing your connection.
 - Try again from a home network.
-- If the network blocks UDP direct traffic, this beta does not provide a relay fallback.
+- If direct UDP is blocked, RetroFight can fall back to a server UDP relay so the match still starts, though direct play gives lower latency.
 
 ## Where To Find Local Data
 
